@@ -10,6 +10,8 @@ class Fixed{
 	public:
 		Fixed();
 		Fixed(Fixed &a);
+		Fixed(const float fNumber);
+		Fixed(const int iNumber);
 		~Fixed();
 		void operator=(const Fixed &oprand);
 		int getRawBits( void ) const;

@@ -4,7 +4,7 @@
 int main( void ) {
 	Fixed a;
 	Fixed b( a );
-	Fixed c;
+	Fixed c(42.42f);
 
 	c = b;
 	std::cout << a.getRawBits() << std::endl;
