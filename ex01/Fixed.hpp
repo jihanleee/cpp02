@@ -9,13 +9,15 @@ class Fixed{
 		static const int _fractionalBits = 8;
 	public:
 		Fixed();
-		Fixed(Fixed &a);
+		Fixed(const Fixed &a);
 		Fixed(const float fNumber);
 		Fixed(const int iNumber);
 		~Fixed();
 		void operator=(const Fixed &oprand);
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+		float toFloat(void) const;
+		int toInt(void) const;
 };
-
+std::ostream& operator <<(std::ostream& os, const Fixed &oprand);
 #endif

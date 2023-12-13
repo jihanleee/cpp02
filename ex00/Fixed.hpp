@@ -11,7 +11,7 @@ class Fixed{
 		Fixed();
 		Fixed(const int &intNumber);
 		Fixed(const float &floatNumber);
-		Fixed(Fixed &a);
+		Fixed(const Fixed &a);
 		~Fixed();
 		float toFloat(void) const;
 		int toInt(void) const;

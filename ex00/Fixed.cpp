@@ -11,9 +11,9 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed(Fixed &a) {
+Fixed::Fixed(const Fixed &a) {
 	std::cout << "Copy constructor called\n";
-	_fixedPointNumber = a.getRawBits();
+	*this = a;
 }
 
 void Fixed::operator=(const Fixed &oprand) {
