@@ -23,7 +23,6 @@ Fixed::Fixed(const float fNumber) {
 	float decimalPart;
 	unsigned int mantissa;
 	int intPart;
-	float result;
 
 	std::cout << "Float constructor called\n";
 	absNumber = fNumber;
@@ -38,8 +37,6 @@ Fixed::Fixed(const float fNumber) {
 	mantissa = (*(unsigned int *)(&decimalPart) - 0x3f800000);
 	*(unsigned int *)(&decimalPart) = (unsigned int)((mantissa) + 0x3f800000);
 	_fixedPointNumber = ((intPart << 8) + (mantissa >> 15));
-	*(unsigned int *)(&result) = ((_fixedPointNumber << 15) & 0x7fffff) + 0x3f800000;
-	result += (_fixedPointNumber >> 8) - 1;
 	if (sign == -1)
 		_fixedPointNumber = ~_fixedPointNumber + 1;
 }
