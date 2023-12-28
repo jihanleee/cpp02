@@ -4,16 +4,16 @@
 # include "Fixed.hpp"
 
 Fixed::Fixed() {
-	std::cout << "Default constructor called\n";
+	/* std::cout << "Default constructor called\n"; */
 	_fixedPointNumber = 0;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called\n";
+	/* std::cout << "Destructor called\n"; */
 }
 
 Fixed::Fixed(const Fixed &a) {
-	std::cout << "Copy constructor called\n";
+	/* std::cout << "Copy constructor called\n"; */
 	*this = a;
 }
 
@@ -24,7 +24,7 @@ Fixed::Fixed(const float fNumber) {
 	unsigned int mantissa;
 	int intPart;
 
-	std::cout << "Float constructor called\n";
+	/* std::cout << "Float constructor called\n"; */
 	absNumber = fNumber;
 	sign = 1;
 	if (fNumber < 0) {
@@ -45,7 +45,7 @@ Fixed::Fixed(const int iNumber) {
 	int absNumber;
 	int sign;
 
-	std::cout << "Int constructor called\n";
+	/* std::cout << "Int constructor called\n"; */
 	absNumber = iNumber;
 	sign = 1;
 	if (iNumber < 0) {
@@ -78,7 +78,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed &oprand) {
 }
 
 void Fixed::operator=(const Fixed &oprand) {
-	std::cout << "Copy assignment operator called\n";
+	/* std::cout << "Copy assignment operator called\n"; */
 	_fixedPointNumber = oprand._fixedPointNumber;
 }
 
@@ -91,42 +91,18 @@ bool Fixed::operator!=(const Fixed &oprand) {
 }
 
 bool Fixed::operator<(const Fixed &oprand) {
-/* 	if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (_fixedPointNumber > oprand._fixedPointNumber);
-	else if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber < 0x8000000)
-		return (true);
-	else if (_fixedPointNumber < 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (false); */
 	return (_fixedPointNumber < oprand._fixedPointNumber);
 }
 
 bool Fixed::operator<=(const Fixed &oprand) {
-/* 	if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (_fixedPointNumber >= oprand._fixedPointNumber);
-	else if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber < 0x8000000)
-		return (true);
-	else if (_fixedPointNumber < 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (false); */
 	return (_fixedPointNumber <= oprand._fixedPointNumber);
 }
 
 bool Fixed::operator>(const Fixed &oprand) {
-/* 	if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (_fixedPointNumber < oprand._fixedPointNumber);
-	else if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber < 0x8000000)
-		return (false);
-	else if (_fixedPointNumber < 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (true); */
 	return (_fixedPointNumber > oprand._fixedPointNumber);
 }
 
 bool Fixed::operator>=(const Fixed &oprand) {
-/* 	if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (_fixedPointNumber <= oprand._fixedPointNumber);
-	else if (_fixedPointNumber >= 0x80000000 && oprand._fixedPointNumber < 0x8000000)
-		return (false);
-	else if (_fixedPointNumber < 0x80000000 && oprand._fixedPointNumber >= 0x8000000)
-		return (true); */
 	return (_fixedPointNumber >= oprand._fixedPointNumber);
 }
 
@@ -167,7 +143,6 @@ Fixed Fixed::operator/(Fixed const &oprand){
 	Fixed result;
 	long	temp;
 	long	temp1;
-/* 	long	temp2; */
 
 	temp1 = ((long)_fixedPointNumber << 8);
 	temp = temp1 / oprand._fixedPointNumber;
@@ -181,6 +156,7 @@ Fixed &Fixed::min(Fixed &fNumber1, Fixed &fNumber2){
 	else
 		return (fNumber2);
 }
+
 const Fixed &Fixed::min(const Fixed &fNumber1, const Fixed &fNumber2){
 	Fixed tmp1(fNumber1);
 	Fixed tmp2(fNumber2);
