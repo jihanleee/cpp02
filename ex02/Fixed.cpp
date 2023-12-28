@@ -36,7 +36,7 @@ Fixed::Fixed(const float fNumber) {
 	decimalPart = decimalPart + 1;
 	mantissa = (*(unsigned int *)(&decimalPart) - 0x3f800000);
 	*(unsigned int *)(&decimalPart) = (unsigned int)((mantissa) + 0x3f800000);
-	_fixedPointNumber = ((intPart << 8) + (mantissa >> 15));
+	_fixedPointNumber = ((intPart << 8) + (mantissa >> 15)) + 1;
 	if (sign == -1)
 		_fixedPointNumber = ~_fixedPointNumber + 1;
 }
